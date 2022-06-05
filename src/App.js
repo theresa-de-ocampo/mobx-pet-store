@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PetOwner from "./PetOwner";
+import PetList from "./components/PetList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const store = new PetOwner();
+
+    const teriz = store.createOwner({
+        id: 1,
+        firstName: "Teriz",
+        lastName: "De Ocampo"
+    });
+
+    store.createOwner({
+        id: 2,
+        firstName: "Eris Jericho",
+        lastName: "Lacsamana"
+    });
+
+    store.createPet({
+        id: 1,
+        name: "Athena",
+        type: "Dog",
+        breed: "Mini Pinscher",
+        owner: teriz
+    });
+
+    store.createPet({
+        id: 2,
+        name: "Rustie",
+        type: "Dog",
+        breed: "Labrador"
+    });
+    
+    return (
+        <>
+            <PetList store={store} />
+        </>
+    )
 }
-
-export default App;
