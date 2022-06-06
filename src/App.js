@@ -1,6 +1,7 @@
 import React from "react";
 import PetOwner from "./PetOwner";
 import PetList from "./components/PetList";
+import OwnerList from "./components/OwnerList";
 
 export default function App() {
     const store = new PetOwner();
@@ -35,6 +36,9 @@ export default function App() {
     return (
         <>
             <PetList store={store} />
+            <br />
+            <hr />
+            <OwnerList store={store} />
         </>
     )
 }

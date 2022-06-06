@@ -3,8 +3,7 @@ import {
     observable,
     computed,
     action,
-    autorun,
-    toJS
+    autorun
 } from "mobx";
 
 export default class PetOwner {
@@ -59,11 +58,9 @@ export default class PetOwner {
     }
 
     deletePet(petId) {
-        console.log("i entered");
         const petIndexAtId = this.pets.findIndex(pet => pet.id === petId);
         if (petIndexAtId > -1)
             this.pets.splice(petIndexAtId, 1);
-        console.log(toJS(this.pets));
     }
 
     get totalOwners() {

@@ -1,5 +1,5 @@
-import React from "react"
-import { observer } from "mobx-react-lite"
+import React from "react";
+import { observer } from "mobx-react-lite";
 
 function PetList({store}) {
     const pets = store.pets.map(
@@ -45,10 +45,11 @@ function PetList({store}) {
         if (ownerId !== pet.owner?.id)
             store.assignOwnerToPet(ownerId, pet.id);
     }
-    
+
     return (
         <div>
             {store.storeDetails}
+            <h2>Pets</h2>
             <table>
                 <thead>
                     <tr>
